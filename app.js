@@ -7,6 +7,9 @@ var currentItems = [];
 var itemsOnSecondToLastScreen = [];
 var itemsOnPreviousScreen = [];
 var images = [];
+var leftPic
+var centerPic
+var rightPic
 
 /* This is the constructor function to make each item an object */
 function Item(name) {
@@ -34,7 +37,6 @@ function genItems(){
   }
 }
 
-
 /* This generates three random images */
 function getThreeRandomImages(){
   items = items.concat(itemsOnSecondToLastScreen);
@@ -60,17 +62,17 @@ function getThreeRandomImages(){
 /* This puts images on html */
 function imagesToHtml(){
   getThreeRandomImages();
-  var leftPic = currentItems[0];
+  leftPic = currentItems[0];
   var img = document.getElementById('leftPic');
   img.src = leftPic.filepath;
   document.body.appendChild(img);
 
-  var centerPic = currentItems[1];
+  centerPic = currentItems[1];
   img = document.getElementById('centerPic');
   img.src = centerPic.filepath;
   document.body.appendChild(img);
 
-  var rightPic = currentItems[2];
+  rightPic = currentItems[2];
   img = document.getElementById('rightPic');
   img.src = rightPic.filepath;
   document.body.appendChild(img);
@@ -87,15 +89,33 @@ function picsToID(){
 }
 
 /* This is what happens when a img is clicked. */
-function handleClick(){
+// function handleClick(){
+//   imagesToHtml();
+//   items.numberOfTimesClicked ++
+//   console.log(items)
+// }
+
+function handleClickLeft(){
   imagesToHtml();
+  leftPic.numberOfTimesClicked ++
 }
 
+function handleClickCenter(){
+  imagesToHtml();
+  centerPic.numberOfTimesClicked ++
+}
+
+function handleClickRight(){
+  imagesToHtml();
+  rightPic.numberOfTimesClicked ++
+}
 /* This actually lets the imgs be clicked */
 function clickPics(){
-  images[0].addEventListener('click', handleClick);
-  images[1].addEventListener('click', handleClick);
-  images[2].addEventListener('click', handleClick);
+  // images[0].addEventListener('click', function(){ handleClick(images[0]));
+  // console.log(images[0]);
+  images[0].addEventListener('click', handleClickLeft);
+  images[1].addEventListener('click', handleClickCenter);
+  images[2].addEventListener('click', handleClickRight);
 }
 
 /* This starts the javascript */
