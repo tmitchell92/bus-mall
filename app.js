@@ -43,10 +43,15 @@ function getThreeRandomImages(){
   currentItems = [];
 
   var nextItem = items.splice(getRandomIndex(items), 1);
+  nextItem[0].numberOfTimesShown ++
   currentItems = currentItems.concat(nextItem);
+
   nextItem = items.splice(getRandomIndex(nextItem), 1);
+  nextItem[0].numberOfTimesShown ++
   currentItems = currentItems.concat(nextItem);
+
   nextItem = items.splice(getRandomIndex(items), 1);
+  nextItem[0].numberOfTimesShown ++
   currentItems = currentItems.concat(nextItem);
 
   return currentItems;
@@ -55,7 +60,6 @@ function getThreeRandomImages(){
 /* This puts images on html */
 function imagesToHtml(){
   getThreeRandomImages();
-  console.log(currentItems);
   var leftPic = currentItems[0];
   var img = document.getElementById('leftPic');
   img.src = leftPic.filepath;
