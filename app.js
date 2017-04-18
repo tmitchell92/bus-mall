@@ -49,13 +49,18 @@ function genItems(){
 /* This pushes images to html */
 function imagesToHtml(){
   var leftPic = getRandomNum();
+  oldItems.push(leftPic);
   var img = document.createElement('IMG');
   img.src = items[leftPic].filepath;
   document.body.appendChild(img);
+  // img.onclick = function() {
+  //   console.log('ok')
+  // }
   var centerPic = getRandomNum();
   while(centerPic === leftPic){
     centerPic = getRandomNum();
   }
+  oldItems.push(centerPic);
   img = document.createElement('IMG');
   img.src = items[centerPic].filepath;
   document.body.appendChild(img);
@@ -63,14 +68,20 @@ function imagesToHtml(){
   while(rightPic === leftPic || rightPic === centerPic){
     rightPic = getRandomNum();
   }
+  oldItems.push(rightPic);
   img = document.createElement('IMG');
   img.src = items[rightPic].filepath;
   document.body.appendChild(img);
-
-
 }
 
-
+var images = document.getElementsByTagName("IMG");
+console.log(images)
+function handleClick(){
+  console.log('ok')
+}
+// 
+// console.log(images[0])
+//   images.addEventListener('click', handleClick)
 
 function start(){
   genItems();
