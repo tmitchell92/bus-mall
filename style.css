@@ -17,6 +17,6 @@ body{
   border: 2px solid black;
 }
 
-.images{
-  display:inline-block;
+.hidden {
+  display: none;
 }

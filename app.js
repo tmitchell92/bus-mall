@@ -1,7 +1,6 @@
 'use strict';
 
 var totalVotes = 0;
-var votesLeft = 25;
 var items = [];
 var currentItems = [];
 var itemsOnSecondToLastScreen = [];
@@ -65,17 +64,14 @@ function imagesToHtml(){
   leftPic = currentItems[0];
   var img = document.getElementById('leftPic');
   img.src = leftPic.filepath;
-  document.body.appendChild(img);
 
   centerPic = currentItems[1];
   img = document.getElementById('centerPic');
   img.src = centerPic.filepath;
-  document.body.appendChild(img);
 
   rightPic = currentItems[2];
   img = document.getElementById('rightPic');
   img.src = rightPic.filepath;
-  document.body.appendChild(img);
 }
 
 /* This pushes photos elements into an array */
@@ -96,16 +92,19 @@ function picsToID(){
 // }
 
 function handleClickLeft(){
+  totalVotes ++
   imagesToHtml();
   leftPic.numberOfTimesClicked ++
 }
 
 function handleClickCenter(){
+  totalVotes ++
   imagesToHtml();
   centerPic.numberOfTimesClicked ++
 }
 
 function handleClickRight(){
+  totalVotes ++
   imagesToHtml();
   rightPic.numberOfTimesClicked ++
 }
@@ -116,6 +115,11 @@ function clickPics(){
   images[0].addEventListener('click', handleClickLeft);
   images[1].addEventListener('click', handleClickCenter);
   images[2].addEventListener('click', handleClickRight);
+}
+
+if(totalVotes === 5){
+  document.getElementById('images').style.display = "none";
+  console.log('test worked')
 }
 
 /* This starts the javascript */
