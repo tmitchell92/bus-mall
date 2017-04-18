@@ -3,7 +3,6 @@
 var totalVotes = 0;
 var votesLeft = 25;
 var items = [];
-var threeRandNum = [];
 var oldItems = [];
 var images = [];
 
@@ -27,18 +26,6 @@ function getRandomNum() {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-function genThreeNum(){
-  for(var i = 0; i < 3; i++){
-    var randNum = getRandomNum();
-    if (randNum == threeRandNum[i]){
-      // getRandomNum()
-    }
-    else {
-      threeRandNum.push(randNum);
-    }
-  }
-}
-
 /* This generates the objects using the constructor */
 function genItems(){
   for (var i = 0; i < allItems.length; i++){
@@ -54,9 +41,6 @@ function imagesToHtml(){
   var img = document.getElementById('leftPic');
   img.src = items[leftPic].filepath;
   document.body.appendChild(img);
-  // img.onclick = function() {
-  //   console.log('ok')
-  // }
   var centerPic = getRandomNum();
   while(centerPic === leftPic){
     centerPic = getRandomNum();
@@ -75,9 +59,8 @@ function imagesToHtml(){
   document.body.appendChild(img);
 }
 
+/* This pushes photos elements into an array */
 function picsToID(){
-  /* This pushes photos elements into an array */
-  // var images = []
   var leftPicID = document.getElementById("leftPic");
   var centerPicID = document.getElementById("centerPic");
   var rightPicID = document.getElementById("rightPic");
@@ -85,16 +68,20 @@ function picsToID(){
   images.push(centerPicID)
   images.push(rightPicID)
 }
+
+/* This is what happens when a img is clicked. */
   function handleClick(){
     imagesToHtml();
 }
 
+/* This actually lets the imgs be clicked */
 function clickPics(){
   images[0].addEventListener('click', handleClick)
   images[1].addEventListener('click', handleClick)
   images[2].addEventListener('click', handleClick)
 }
 
+/* This starts the javascript */
 function start(){
   genItems();
   imagesToHtml();
