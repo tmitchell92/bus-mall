@@ -1,11 +1,10 @@
 'use strict';
 
-var totalVotes = 0;
-var votesLeft = 25;
+var totalClicks = 0;
+var clicksLeft = 25;
 var items = [];
 var threeRandNum = [];
 var oldItems = [];
-var images = [];
 
 /* This is the constructor function to make each item an object */
 function Item(name) {
@@ -51,7 +50,7 @@ function genItems(){
 function imagesToHtml(){
   var leftPic = getRandomNum();
   oldItems.push(leftPic);
-  var img = document.getElementById('leftPic');
+  var img = document.createElement('IMG');
   img.src = items[leftPic].filepath;
   document.body.appendChild(img);
   // img.onclick = function() {
@@ -62,7 +61,7 @@ function imagesToHtml(){
     centerPic = getRandomNum();
   }
   oldItems.push(centerPic);
-  img = document.getElementById('centerPic');
+  img = document.createElement('IMG');
   img.src = items[centerPic].filepath;
   document.body.appendChild(img);
   var rightPic = getRandomNum();
@@ -70,36 +69,23 @@ function imagesToHtml(){
     rightPic = getRandomNum();
   }
   oldItems.push(rightPic);
-  img = document.getElementById('rightPic');
+  img = document.createElement('IMG');
   img.src = items[rightPic].filepath;
   document.body.appendChild(img);
 }
 
-function picsToID(){
-  /* This pushes photos elements into an array */
-  // var images = []
-  var leftPicID = document.getElementById("leftPic");
-  var centerPicID = document.getElementById("centerPic");
-  var rightPicID = document.getElementById("rightPic");
-  images.push(leftPicID)
-  images.push(centerPicID)
-  images.push(rightPicID)
+var images = document.getElementsByTagName("IMG");
+console.log(images)
+function handleClick(){
+  console.log('ok')
 }
-  function handleClick(){
-    imagesToHtml();
-}
-
-function clickPics(){
-  images[0].addEventListener('click', handleClick)
-  images[1].addEventListener('click', handleClick)
-  images[2].addEventListener('click', handleClick)
-}
+// 
+// console.log(images[0])
+//   images.addEventListener('click', handleClick)
 
 function start(){
   genItems();
   imagesToHtml();
-  picsToID();
-  clickPics();
 }
 
 start();
