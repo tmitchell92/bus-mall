@@ -7,12 +7,14 @@
 
 body{
   max-width: 960px;
-
+  background-color: blue
 }
 
 #leftPic, #centerPic, #rightPic  {
   width: 200px;
   height:auto;
+  margin-left: 50px;
+  border: 2px solid black;
 }
 
 .images{
