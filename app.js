@@ -11,6 +11,27 @@ var leftPic;
 var centerPic;
 var rightPic;
 
+  var bag = new Item('Bag', 'img/bag.jpg');
+  var banana = new Item('Banana', 'img/banana.jpg');
+  var bathroom = new Item('Bathroom', 'img/bathroom.jpg');
+  var boots = new Item('Boots', 'img/boots.jpg');
+  var breakfast = new Item('Breakfast', 'img/breakfast.jpg');
+  var bubblegum = new Item('Bubblegum', 'img/bubblegum.jpg');
+  var chair = new Item('Chair', 'img/chair.jpg');
+  var cthulhu = new Item('Cthulhu', 'img/cthulhu.jpg');
+  var dogDuck = new Item('Dog Duck', 'img/dog-duck.jpg');
+  var dragon = new Item('Dragon', 'img/dragon.jpg');
+  var pen = new Item('Pen', 'img/pen.jpg');
+  var petSweep = new Item('Pet Sweep', 'img/pet-sweep.jpg');
+  var scissors = new Item('Scissors', 'img/scissors.jpg');
+  var shark = new Item('Shark', 'img/shark.jpg');
+  var sweep = new Item('Sweep', 'img/sweep.png');
+  var tauntaun = new Item('Tauntaum', 'img/tauntaun.jpg');
+  var unicorn = new Item('Unicorn', 'img/unicorn.jpg');
+  var usb = new Item('USB', 'img/usb.gif');
+  var waterCan = new Item('Water Can', 'img/water-can.jpg');
+  var wineGlass = new Item('Wine Glass', 'img/wine-glass.jpg');
+
 /* This is the constructor function to make each item an object */
 function Item(name, filepath) {
   this.name = name;
@@ -20,27 +41,6 @@ function Item(name, filepath) {
   items.push(this);
   allItems.push(this);
 }
-
-var bag = new Item('Bag', 'img/bag.jpg');
-var banana = new Item('Banana', 'img/banana.jpg');
-var bathroom = new Item('Bathroom', 'img/bathroom.jpg');
-var boots = new Item('Boots', 'img/boots.jpg');
-var breakfast = new Item('Breakfast', 'img/breakfast.jpg');
-var bubblegum = new Item('Bubblegum', 'img/bubblegum.jpg');
-var chair = new Item('Chair', 'img/chair.jpg');
-var cthulhu = new Item('Cthulhu', 'img/cthulhu.jpg');
-var dogDuck = new Item('Dog Duck', 'img/dog-duck.jpg');
-var dragon = new Item('Dragon', 'img/dragon.jpg');
-var pen = new Item('Pen', 'img/pen.jpg');
-var petSweep = new Item('Pet Sweep', 'img/pet-sweep.jpg');
-var scissors = new Item('Scissors', 'img/scissors.jpg');
-var shark = new Item('Shark', 'img/shark.jpg');
-var sweep = new Item('Sweep', 'img/sweep.png');
-var tauntaun = new Item('Tauntaum', 'img/tauntaun.jpg');
-var unicorn = new Item('Unicorn', 'img/unicorn.jpg');
-var usb = new Item('USB', 'img/usb.gif');
-var waterCan = new Item('Water Can', 'img/water-can.jpg');
-var wineGlass = new Item('Wine Glass', 'img/wine-glass.jpg');
 
 /* This genereates a random number */
 function getRandomIndex(list) {
@@ -142,21 +142,18 @@ function hidePics(){
   document.getElementById('centerPic').style.display = 'none';    document.getElementById('rightPic').style.display = 'none';
   getChartData();
   makeTable();
-
 }
 
 /* This starts the javascript */
 imagesToHtml();
 picsToID();
 clickPics();
-// hidePics();
 
 /* This puts all the items number of times clicked into an array. */
 function getChartData(){
   for (var i = 0; i < allItems.length; i++){
-    console.log(allItems[i].numberOfTimesClicked);
     allItemsNumClicked[i]=(allItems[i].numberOfTimesClicked);
-    console.log(allItemsNumClicked[i]);
+    localStorage.setItem('items' + i, JSON.stringify(allItems[i]));
   }
 }
 
@@ -171,33 +168,30 @@ function makeTable(){
     responsive: true,
 
     data: {
-      labels: ['banana', 'bag', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog duck', 'dragon', 'pen', 'pet sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water can', 'wine glass'],
+      labels: ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog duck', 'dragon', 'pen', 'pet sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water can', 'wine glass'],
       datasets: [
         {
           backgroundColor: [
-            '#f0f',
-            '#0f0',
+            '#3568d9',
+            '#fff461',
+            '#000000',
+            '#c1a118',
+            '#63c8f1',
+            '#16a72d',
+            '#b81c1c',
+            '#49eb3b',
+            '#deee78',
+            '#f41825',
+            '#213dfb',
+            '#b84e67',
+            '#ff8819',
+            '#828282',
+            '#a46111',
             '#f00',
             '#0ff',
-            'black',
-            'white',
-            'yellow',
-            'brown',
-            'violet',
-            'blue',
-            'red',
-            'green',
-            'pink',
-            '#f0f',
-            '#0f0',
-            '#f00',
-            '#0ff',
-            'black',
-            'white',
-            'yellow',
-            'brown',
-            'violet',
-            'blue',
+            '#535353',
+            '#08106f',
+            '#0c6b1e',
 
           ],
           data: allItemsNumClicked
