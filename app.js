@@ -15,6 +15,7 @@ items = JSON.parse(localStorage.getItem('items'));
 allItems = items;
 if(items === null){
   items = [];
+  allItems = [];
 
   new Item('Bag', 'img/bag.jpg');
   new Item('Banana', 'img/banana.jpg');
