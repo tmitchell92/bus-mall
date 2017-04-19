@@ -13,7 +13,6 @@ var rightPic;
 
 /* This is the constructor function to make each item an object */
 function Item(name, filepath) {
-  // var splitName = name.split('.')[0];
   this.name = name;
   this.filepath = filepath;
   this.numberOfTimesShown = 0;
@@ -32,14 +31,14 @@ var chair = new Item('Chair', 'img/chair.jpg');
 var cthulhu = new Item('Cthulhu', 'img/cthulhu.jpg');
 var dogDuck = new Item('Dog Duck', 'img/dog-duck.jpg');
 var dragon = new Item('Dragon', 'img/dragon.jpg');
-var penItem = new Item('Pen', 'img/pen.jpg');
+var pen = new Item('Pen', 'img/pen.jpg');
 var petSweep = new Item('Pet Sweep', 'img/pet-sweep.jpg');
 var scissors = new Item('Scissors', 'img/scissors.jpg');
 var shark = new Item('Shark', 'img/shark.jpg');
 var sweep = new Item('Sweep', 'img/sweep.png');
 var tauntaun = new Item('Tauntaum', 'img/tauntaun.jpg');
 var unicorn = new Item('Unicorn', 'img/unicorn.jpg');
-var usbItem = new Item('USB', 'img/usb.gif');
+var usb = new Item('USB', 'img/usb.gif');
 var waterCan = new Item('Water Can', 'img/water-can.jpg');
 var wineGlass = new Item('Wine Glass', 'img/wine-glass.jpg');
 
