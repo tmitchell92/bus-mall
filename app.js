@@ -133,21 +133,6 @@ function hidePics(){
 }
 while (totalVotes === 5);
 }
-// function hidePics(){
-//   while(totalVotes < 25){
-//     document.getElementById('leftPic').style.display = 'block';
-//     document.getElementById('centerPic').style.display = 'block';
-//     document.getElementById('rightPic').style.display = 'block';
-//   }
-//   else{
-//     console.log('ok');
-//     document.getElementById('leftPic').style.display = 'none';
-//     document.getElementById('centerPic').style.display = 'none';
-//     document.getElementById('rightPic').style.display = 'none';
-//     getChartData();
-//     makeTable();
-//   }
-// }
 
 /* This starts the javascript */
 imagesToHtml();
