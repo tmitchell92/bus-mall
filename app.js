@@ -21,8 +21,8 @@ function Item(name, filepath) {
 }
 
 var bag = new Item('Bag', 'img/bag.jpg');
-var bananaItem = new Item('Banana', 'img/banana.jpg');
-var bathroomItem = new Item('Bathroom', 'img/bathroom.jpg');
+var banana = new Item('Banana', 'img/banana.jpg');
+var bathroom = new Item('Bathroom', 'img/bathroom.jpg');
 var boots = new Item('Boots', 'img/boots.jpg');
 var breakfast = new Item('Breakfast', 'img/breakfast.jpg');
 var bubblegum = new Item('Bubblegum', 'img/bubblegum.jpg');
@@ -132,71 +132,67 @@ function hidePics(){
 document.getElementById('images').style.display = 'none';
 
 /* This starts the javascript */
-// function start(){
-// genItems();
 imagesToHtml();
 picsToID();
 clickPics();
 hidePics();
 
 
-// start();
-
 console.log(items);
-// var allItemsNumClicked = []
-// function getChartData(){
-//   for (var i = 0; i < allItems.length; i++){
-//   allItemsNumClicked.push(items[i].numberOfTimesClicked)
-//
-// }
-// }
-//
-// function makeTable(){
-// var canvas = document.getElementById('chart-canvas');
-// canvas.width = '500px';
-// canvas.height = '500px';
-//
-//
-// var ctx = canvas.getContext('2d');
-// var myChart = new Chart(ctx, {
-//   type: 'bar',
-//   responsive: true,
-//
-//   data: {
-//   labels: ['banana', 'bag', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog duck', 'dragon', 'pen', 'pet sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water can', 'wine glass'],
-//   datasets: [
-//     {
-//       backgroundColor: [
-//         '#f0f',
-//         '#0f0',
-//         '#f00',
-//         '#0ff',
-//         'black',
-//         'white',
-//         'yellow',
-//         'brown',
-//         'violet',
-//         'blue',
-//         'red',
-//         'green',
-//         'pink',
-//         '#f0f',
-//         '#0f0',
-//         '#f00',
-//         '#0ff',
-//         'black',
-//         'white',
-//         'yellow',
-//         'brown',
-//         'violet',
-//         'blue',
-//
-//       ],
-//       data: allItemsNumClicked
-//     },
-//   ]
-// }
-// })
-// }
-// getChartData()
-// makeTable()
+var allItemsNumClicked = []
+function getChartData(){
+  for (var i = 0; i < items.length; i++){
+  allItemsNumClicked.push(items[i].numberOfTimesClicked)
+
+}
+}
+
+function makeTable(){
+var canvas = document.getElementById('chart-canvas');
+canvas.width = '500px';
+canvas.height = '500px';
+
+
+var ctx = canvas.getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  responsive: true,
+
+  data: {
+  labels: ['banana', 'bag', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog duck', 'dragon', 'pen', 'pet sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water can', 'wine glass'],
+  datasets: [
+    {
+      backgroundColor: [
+        '#f0f',
+        '#0f0',
+        '#f00',
+        '#0ff',
+        'black',
+        'white',
+        'yellow',
+        'brown',
+        'violet',
+        'blue',
+        'red',
+        'green',
+        'pink',
+        '#f0f',
+        '#0f0',
+        '#f00',
+        '#0ff',
+        'black',
+        'white',
+        'yellow',
+        'brown',
+        'violet',
+        'blue',
+
+      ],
+      data: banana.numberOfTimesClicked
+    },
+  ]
+}
+})
+}
+getChartData()
+makeTable()
