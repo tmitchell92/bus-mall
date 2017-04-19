@@ -10,27 +10,33 @@ var allItemsNumClicked = [];
 var leftPic;
 var centerPic;
 var rightPic;
+var items = JSON.parse(localStorage.getItem('items'));
+allItems = items
+if(items === null){
+  items = [];
 
-  var bag = new Item('Bag', 'img/bag.jpg');
-  var banana = new Item('Banana', 'img/banana.jpg');
-  var bathroom = new Item('Bathroom', 'img/bathroom.jpg');
-  var boots = new Item('Boots', 'img/boots.jpg');
-  var breakfast = new Item('Breakfast', 'img/breakfast.jpg');
-  var bubblegum = new Item('Bubblegum', 'img/bubblegum.jpg');
-  var chair = new Item('Chair', 'img/chair.jpg');
-  var cthulhu = new Item('Cthulhu', 'img/cthulhu.jpg');
-  var dogDuck = new Item('Dog Duck', 'img/dog-duck.jpg');
-  var dragon = new Item('Dragon', 'img/dragon.jpg');
-  var pen = new Item('Pen', 'img/pen.jpg');
-  var petSweep = new Item('Pet Sweep', 'img/pet-sweep.jpg');
-  var scissors = new Item('Scissors', 'img/scissors.jpg');
-  var shark = new Item('Shark', 'img/shark.jpg');
-  var sweep = new Item('Sweep', 'img/sweep.png');
-  var tauntaun = new Item('Tauntaum', 'img/tauntaun.jpg');
-  var unicorn = new Item('Unicorn', 'img/unicorn.jpg');
-  var usb = new Item('USB', 'img/usb.gif');
-  var waterCan = new Item('Water Can', 'img/water-can.jpg');
-  var wineGlass = new Item('Wine Glass', 'img/wine-glass.jpg');
+    var bag = new Item('Bag', 'img/bag.jpg');
+    var banana = new Item('Banana', 'img/banana.jpg');
+    var bathroom = new Item('Bathroom', 'img/bathroom.jpg');
+    var boots = new Item('Boots', 'img/boots.jpg');
+    var breakfast = new Item('Breakfast', 'img/breakfast.jpg');
+    var bubblegum = new Item('Bubblegum', 'img/bubblegum.jpg');
+    var chair = new Item('Chair', 'img/chair.jpg');
+    var cthulhu = new Item('Cthulhu', 'img/cthulhu.jpg');
+    var dogDuck = new Item('Dog Duck', 'img/dog-duck.jpg');
+    var dragon = new Item('Dragon', 'img/dragon.jpg');
+    var pen = new Item('Pen', 'img/pen.jpg');
+    var petSweep = new Item('Pet Sweep', 'img/pet-sweep.jpg');
+    var scissors = new Item('Scissors', 'img/scissors.jpg');
+    var shark = new Item('Shark', 'img/shark.jpg');
+    var sweep = new Item('Sweep', 'img/sweep.png');
+    var tauntaun = new Item('Tauntaum', 'img/tauntaun.jpg');
+    var unicorn = new Item('Unicorn', 'img/unicorn.jpg');
+    var usb = new Item('USB', 'img/usb.gif');
+    var waterCan = new Item('Water Can', 'img/water-can.jpg');
+    var wineGlass = new Item('Wine Glass', 'img/wine-glass.jpg');
+}
+
 
 /* This is the constructor function to make each item an object */
 function Item(name, filepath) {
@@ -152,10 +158,10 @@ clickPics();
 /* This puts all the items number of times clicked into an array. */
 function getChartData(){
   for (var i = 0; i < allItems.length; i++){
-    allItemsNumClicked[i]=(allItems[i].numberOfTimesClicked);
-    localStorage.setItem('items' + i, JSON.stringify(allItems[i]));
+      allItemsNumClicked[i] = allItems[i].numberOfTimesClicked;
+      localStorage.setItem('items', JSON.stringify(allItems))
+    }
   }
-}
 
 function makeTable(){
   var canvas = document.getElementById('chart-canvas');
