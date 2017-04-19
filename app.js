@@ -5,12 +5,12 @@ var currentItems = [];
 var itemsOnSecondToLastScreen = [];
 var itemsOnPreviousScreen = [];
 var images = [];
+var items = [];
+var allItems = [];
+var allItemsNumClicked = [];
 var leftPic;
 var centerPic;
 var rightPic;
-var items =[];
-var allItemsNumClicked = [];
-
 /* This is the constructor function to make each item an object */
 function Item(name, filepath) {
   // var splitName = name.split('.')[0];
@@ -19,6 +19,7 @@ function Item(name, filepath) {
   this.numberOfTimesShown = 0;
   this.numberOfTimesClicked = 0;
   items.push(this);
+  allItems.push(this);
 }
 
 var bag = new Item('Bag', 'img/bag.jpg');
@@ -122,15 +123,31 @@ function clickPics(){
 }
 
 function hidePics(){
-  if(totalVotes < 5){
-    document.getElementById('images').style.display = 'block';
-  }
-  else {
-    document.getElementById('images').style.display = 'none';
-    console.log('ok');
-  }
+  do {
+        console.log('ok');
+        document.getElementById('leftPic').style.display = 'none';
+        document.getElementById('centerPic').style.display = 'none';
+        document.getElementById('rightPic').style.display = 'none';
+        getChartData();
+        makeTable();
 }
-document.getElementById('images').style.display = 'none';
+while (totalVotes === 5);
+}
+// function hidePics(){
+//   while(totalVotes < 25){
+//     document.getElementById('leftPic').style.display = 'block';
+//     document.getElementById('centerPic').style.display = 'block';
+//     document.getElementById('rightPic').style.display = 'block';
+//   }
+//   else{
+//     console.log('ok');
+//     document.getElementById('leftPic').style.display = 'none';
+//     document.getElementById('centerPic').style.display = 'none';
+//     document.getElementById('rightPic').style.display = 'none';
+//     getChartData();
+//     makeTable();
+//   }
+// }
 
 /* This starts the javascript */
 imagesToHtml();
