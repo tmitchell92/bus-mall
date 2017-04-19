@@ -98,22 +98,38 @@ function picsToID(){
 
 /*These functions let the next random images display when clicked on */
 function handleClickLeft(){
-  totalVotes ++;
-  leftPic.numberOfTimesClicked ++;
-  imagesToHtml();
+  if (totalVotes > 25){
+    hidePics();
+  }
+  else{
+    totalVotes ++;
+    leftPic.numberOfTimesClicked ++;
+    imagesToHtml();
+  }
 }
 
 function handleClickCenter(){
-  totalVotes ++;
-  centerPic.numberOfTimesClicked ++;
-  imagesToHtml();
+  if (totalVotes > 25){
+    hidePics();
+  }
+  else{
+    totalVotes ++;
+    centerPic.numberOfTimesClicked ++;
+    imagesToHtml();
+  }
 }
 
 function handleClickRight(){
-  totalVotes ++;
-  rightPic.numberOfTimesClicked ++;
-  imagesToHtml();
+  if (totalVotes > 25){
+    hidePics();
+  }
+  else{
+    totalVotes ++;
+    rightPic.numberOfTimesClicked ++;
+    imagesToHtml();
+  }
 }
+
 /* This actually lets the imgs be clicked */
 function clickPics(){
   images[0].addEventListener('click', handleClickLeft);
@@ -123,15 +139,10 @@ function clickPics(){
 
 /* This will hide the pics, then generate chart data and table. */
 function hidePics(){
-  do {
-    console.log('ok');
-    document.getElementById('leftPic').style.display = 'none';
-    document.getElementById('centerPic').style.display = 'none';
-    document.getElementById('rightPic').style.display = 'none';
-    getChartData();
-    makeTable();
-  }
-  while (totalVotes === 5);
+  document.getElementById('leftPic').style.display = 'none';
+  document.getElementById('centerPic').style.display = 'none';    document.getElementById('rightPic').style.display = 'none';
+  getChartData();
+  makeTable();
 
 }
 
@@ -154,7 +165,6 @@ function makeTable(){
   var canvas = document.getElementById('chart-canvas');
   canvas.width = '500px';
   canvas.height = '500px';
-
 
   var ctx = canvas.getContext('2d');
   var myChart = new Chart(ctx, {
