@@ -1,5 +1,4 @@
 'use strict';
-
 var totalVotes = 0;
 var currentItems = [];
 var itemsOnSecondToLastScreen = [];
@@ -43,8 +42,6 @@ var unicorn = new Item('Unicorn', 'img/unicorn.jpg');
 var usbItem = new Item('USB', 'img/usb.gif');
 var waterCan = new Item('Water Can', 'img/water-can.jpg');
 var wineGlass = new Item('Wine Glass', 'img/wine-glass.jpg');
-
-
 
 /* This genereates a random number */
 function getRandomIndex(list) {
@@ -124,6 +121,7 @@ function clickPics(){
   images[2].addEventListener('click', handleClickRight);
 }
 
+/* This will hide the pics, then generate chart data and table. */
 function hidePics(){
   do {
     console.log('ok');
@@ -136,7 +134,6 @@ function hidePics(){
   while (totalVotes === 5);
 
 }
-
 
 /* This starts the javascript */
 imagesToHtml();
@@ -200,5 +197,3 @@ function makeTable(){
     }
   });
 }
-// getChartData()
-// makeTable()
