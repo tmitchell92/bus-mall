@@ -9,6 +9,7 @@ var leftPic;
 var centerPic;
 var rightPic;
 var items =[];
+var allItemsNumClicked = [];
 
 /* This is the constructor function to make each item an object */
 function Item(name, filepath) {
@@ -138,61 +139,60 @@ clickPics();
 hidePics();
 
 
-console.log(items);
-var allItemsNumClicked = []
 function getChartData(){
   for (var i = 0; i < items.length; i++){
-  allItemsNumClicked.push(items[i].numberOfTimesClicked)
-
-}
+    console.log(items[i].numberOfTimesClicked);
+    allItemsNumClicked[i]=(items[i].numberOfTimesClicked);
+    console.log(allItemsNumClicked[i]);
+  }
 }
 
 function makeTable(){
-var canvas = document.getElementById('chart-canvas');
-canvas.width = '500px';
-canvas.height = '500px';
+  var canvas = document.getElementById('chart-canvas');
+  canvas.width = '500px';
+  canvas.height = '500px';
 
 
-var ctx = canvas.getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  responsive: true,
+  var ctx = canvas.getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    responsive: true,
 
-  data: {
-  labels: ['banana', 'bag', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog duck', 'dragon', 'pen', 'pet sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water can', 'wine glass'],
-  datasets: [
-    {
-      backgroundColor: [
-        '#f0f',
-        '#0f0',
-        '#f00',
-        '#0ff',
-        'black',
-        'white',
-        'yellow',
-        'brown',
-        'violet',
-        'blue',
-        'red',
-        'green',
-        'pink',
-        '#f0f',
-        '#0f0',
-        '#f00',
-        '#0ff',
-        'black',
-        'white',
-        'yellow',
-        'brown',
-        'violet',
-        'blue',
+    data: {
+      labels: ['banana', 'bag', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog duck', 'dragon', 'pen', 'pet sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water can', 'wine glass'],
+      datasets: [
+        {
+          backgroundColor: [
+            '#f0f',
+            '#0f0',
+            '#f00',
+            '#0ff',
+            'black',
+            'white',
+            'yellow',
+            'brown',
+            'violet',
+            'blue',
+            'red',
+            'green',
+            'pink',
+            '#f0f',
+            '#0f0',
+            '#f00',
+            '#0ff',
+            'black',
+            'white',
+            'yellow',
+            'brown',
+            'violet',
+            'blue',
 
-      ],
-      data: banana.numberOfTimesClicked
-    },
-  ]
+          ],
+          data: allItemsNumClicked
+        },
+      ]
+    }
+  });
 }
-})
-}
-getChartData()
-makeTable()
+// getChartData()
+// makeTable()
