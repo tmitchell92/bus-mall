@@ -11,6 +11,7 @@ var allItemsNumClicked = [];
 var leftPic;
 var centerPic;
 var rightPic;
+
 /* This is the constructor function to make each item an object */
 function Item(name, filepath) {
   // var splitName = name.split('.')[0];
@@ -125,14 +126,14 @@ function clickPics(){
 
 function hidePics(){
   do {
-        console.log('ok');
-        document.getElementById('leftPic').style.display = 'none';
-        document.getElementById('centerPic').style.display = 'none';
-        document.getElementById('rightPic').style.display = 'none';
-        getChartData();
-        makeTable();
-}
-while (totalVotes === 5);
+    console.log('ok');
+    document.getElementById('leftPic').style.display = 'none';
+    document.getElementById('centerPic').style.display = 'none';
+    document.getElementById('rightPic').style.display = 'none';
+    getChartData();
+    makeTable();
+  }
+  while (totalVotes === 5);
 
 }
 
@@ -143,11 +144,11 @@ picsToID();
 clickPics();
 // hidePics();
 
-
+/* This puts all the items number of times clicked into an array. */
 function getChartData(){
-  for (var i = 0; i < items.length; i++){
-    console.log(items[i].numberOfTimesClicked);
-    allItemsNumClicked[i]=(items[i].numberOfTimesClicked);
+  for (var i = 0; i < allItems.length; i++){
+    console.log(allItems[i].numberOfTimesClicked);
+    allItemsNumClicked[i]=(allItems[i].numberOfTimesClicked);
     console.log(allItemsNumClicked[i]);
   }
 }
