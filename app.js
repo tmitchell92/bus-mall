@@ -121,24 +121,25 @@ function clickPics(){
   images[1].addEventListener('click', handleClickCenter);
   images[2].addEventListener('click', handleClickRight);
 }
+//
+// function hidePics(){
+//   do {
+//         console.log('ok');
+//         document.getElementById('leftPic').style.display = 'none';
+//         document.getElementById('centerPic').style.display = 'none';
+//         document.getElementById('rightPic').style.display = 'none';
+//         getChartData();
+//         makeTable();
+// }
+// while (totalVotes === 5);
+// }
 
-function hidePics(){
-  do {
-        console.log('ok');
-        document.getElementById('leftPic').style.display = 'none';
-        document.getElementById('centerPic').style.display = 'none';
-        document.getElementById('rightPic').style.display = 'none';
-        getChartData();
-        makeTable();
-}
-while (totalVotes === 5);
-}
 
 /* This starts the javascript */
 imagesToHtml();
 picsToID();
 clickPics();
-hidePics();
+// hidePics();
 
 
 function getChartData(){
